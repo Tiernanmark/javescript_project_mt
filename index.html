@@ -21,6 +21,18 @@
             </label>
         </div>
         <input type="number" id="annualIncome" placeholder="please enter your yearly net income">
+        <label for="irishBank">Choose Bank</label>
+        <select id="irishBank">
+            <option value="">Please select a bank</option>
+            <option value="boi">Bank of Ireland</option>
+            <option value="aib">AIB</option>
+            <option value="ptsb">PTSB</option>
+            <option value="ebs">EBS</option>
+        </select>
+        <label for="interestRate">Interest Rate</label>
+        <select id="interestRate" disabled>
+            <option value="">Awaiting bank selection</option>
+        </select>
         <button type="button" id="calculateTotalBtn">Calculate</button>
         <p id="totalBorrowing"></p>
         <p id="annualIncomeMessage"></p>
