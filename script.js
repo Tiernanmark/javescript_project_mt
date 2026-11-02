@@ -1,7 +1,10 @@
+// Total lending about based on declared annual income
+
 const annualIncome = document.getElementById('annualIncome');
 const calculateTotalButton = document.getElementById('calculateTotalBtn');
 const totalMessage = document.getElementById('annualIncomeMessage');
 const totalBorrowing = document.getElementById('totalBorrowing');
+
 
 
 calculateTotalButton.addEventListener("click", function() {
@@ -23,5 +26,66 @@ calculateTotalButton.addEventListener("click", function() {
 
     const annualCalculatedIncome = yearlyIncome * multiplier;
     totalBorrowing.textContent =`Your calculated max lend is ${annualCalculatedIncome}`;
+
+})
+
+// Creation of rate dropdown selections based on bank choosen
+
+const irishBank = document.getElementById('irishBank');
+const interestRate = document.getElementById('interestRate');
+
+
+const bankRates = {
+    boi: {
+        5: 3,
+        10: 5,
+        15: 7,
+        20: 10,
+    },
+    aib: {
+        5: 3,
+        10: 5,
+        15: 7,
+        20: 10,
+    },
+    ptsb: {
+        5: 3,
+        10: 5,
+        15: 7,
+        20: 10,
+    },
+    ebs: {
+        5: 3,
+        10: 5,
+        15: 7,
+        20: 10,
+    }
+}
+
+irishBank.addEventListener('change', function() {
+
+    const selectedBank = irishBank.value;
+
+    interestRate.innerHTML = '';
+
+    if(selectedBank === '') {
+        interestRate.disabled = true;
+        interestRate.innerHTML = '<option value="">Awaiting bank Selction</option>';
+        return;
+    }
+
+    const rates = bankRates[selectedBank];
+
+    Object.entries(rates).forEach(function([percentage, years]) {
+        const option = document.createElement('option');
+
+        option.value = percentage;
+        option.textContent = percentage + '% - ' + years + ' Years';
+
+        interestRate.appendChild(option);
+    });
+
+    interestRate.disabled = false;
+
 
 })
