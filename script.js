@@ -4,6 +4,8 @@ const annualIncome = document.getElementById('annualIncome');
 const calculateTotalButton = document.getElementById('calculateTotalBtn');
 const totalMessage = document.getElementById('annualIncomeMessage');
 const totalBorrowing = document.getElementById('totalBorrowing');
+const irishBank = document.getElementById('irishBank');
+const interestRate = document.getElementById('interestRate');
 
 
 
@@ -29,10 +31,11 @@ calculateTotalButton.addEventListener("click", function() {
 
 })
 
+
+
+
 // Creation of rate dropdown selections based on bank choosen
 
-const irishBank = document.getElementById('irishBank');
-const interestRate = document.getElementById('interestRate');
 
 
 const bankRates = {
@@ -66,6 +69,17 @@ irishBank.addEventListener('change', function() {
 
     const selectedBank = irishBank.value;
 
+    document.body.classList.remove(
+        'boi-theme',
+        'aib-theme',
+        'ptsb-theme',
+        'ebs-theme'
+    );
+
+    if (selectedBank !== '') {
+        document.body.classList.add(selectedBank + '-theme');
+    }
+
     interestRate.innerHTML = '';
 
     if(selectedBank === '') {
@@ -89,3 +103,4 @@ irishBank.addEventListener('change', function() {
 
 
 })
+
