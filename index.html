@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Mortgage Calculator</h1>
+    <header>
+        <h1>Mortgage Calculator</h1>
+    </header>
     <div class="borrowingCalculator">
         <div>
-            <p></p>
+            <p>Type of Buyer</p>
             <label>
                 <input type="radio" name="buyerType" id="firstTime">
                 First Time Buyer
@@ -39,11 +41,67 @@
             </select>
             <input type="number" id="termLength" placeholder="please enter term length">
             <button type="button" id="calculatePaymentsBtn">Calculate</button>
-        <p id="monthlyPayments"></p>
-        <p id="monthlyPaymentsMessage"></p>
+            <p id="monthlyPayments"></p>
+            <p id="monthlyPaymentsMessage"></p>
+        </div>
+        <div id="mortgageChecklist" hidden>
+            <h2>Checklist</h2>
+            <ul class="task-list">
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        <span>Months Current Account/s Bank Statement</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        6 Months Savings Account/s Bank Statement
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        6 Months Loan Account/s Bank Statement
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        Salary Certificate
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        An Employment Detail Summary (EDS) (available through Revenue's myAccount service)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        Proven Repay Ability (PRA) 
+                        <p>(savings/rent/Loan payments:finsihing in next 6 months)</p>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        placeholder
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox">
+                        placeholder
+                    </label>
+                </li>
+
+            </ul>
         </div>
 
     </div>
+    <footer>Placeholder</footer>
     <script src="script.js"></script>
 </body>
 </html>

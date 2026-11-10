@@ -12,6 +12,7 @@ const mortgageDetails = document.getElementById('mortgageDetails');
 const calculatePaymentsButton = document.getElementById('calculatePaymentsBtn');
 const monthlyPayments = document.getElementById('monthlyPayments');
 const paymentsMessage = document.getElementById('monthlyPaymentsMessage');
+const mortgageChecklist = document.getElementById('mortgageChecklist')
 // let used to allow calculation from first fuction to be used in subsequent functions
 let annualCalculatedIncome = 0;
 
@@ -146,5 +147,7 @@ calculatePaymentsButton.addEventListener("click", function() {
     const monthlyRepayments = loanRate/lowerRate;     
 
     monthlyPayments.textContent =`Your monthly Repayments would be ${monthlyRepayments}`;
+
+    mortgageChecklist.hidden = false
 
 })
