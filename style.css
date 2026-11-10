@@ -57,7 +57,7 @@ body.aib-theme .borrowingCalculator {
 /* PTSB */
 body.ptsb-theme {
     /* background-color: #dc4d15; */
-    background: linear-gradient(135deg, #dc4d15 0%, #8b5324 100%);;
+    background: linear-gradient(135deg, #dc4d15 0%, #8b5324 100%);
     color: #08272c;
 }
 
@@ -99,16 +99,33 @@ padding: 0;
 }
 
 .task-list li {
-margin: 10px 0;
+margin: 15px 0;
 }
  
 .task-list label {
 display: flex;
-align-items: center;
+align-items: flex-start;
 gap: 10px;
 cursor: pointer;
 }
 
+.task-list input[type="checkbox"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.task-list input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.task-list small {
+    display: block;
+    margin-top: 5px;
+}
+
 footer {
     margin-top: auto;
+    text-align: center;
+    padding: 15px;
 }

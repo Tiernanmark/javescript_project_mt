@@ -3,7 +3,7 @@ const firstTimeBuyer = document.getElementById('firstTime');
 const secondTimeBuyer = document.getElementById('secondTime');
 const annualIncome = document.getElementById('annualIncome');
 const calculateTotalButton = document.getElementById('calculateTotalBtn');
-const totalMessage = document.getElementById('annualIncomeMessage');
+const depositMessage = document.getElementById('depositMessage');
 const totalBorrowing = document.getElementById('totalBorrowing');
 const irishBank = document.getElementById('irishBank');
 const interestRate = document.getElementById('interestRate');
@@ -24,24 +24,31 @@ calculateTotalButton.addEventListener("click", function() {
     
     let multiplier;
 
+    annualCalculatedIncome = 0;
+    totalBorrowing.textContent = '';
+    monthlyPayments.textContent = '';
+    mortgageChecklist.hidden = true;
+
     if (firstTimeBuyer.checked) {
     multiplier = 4;
     } else if (secondTimeBuyer.checked) {
     multiplier = 3.5;
     } else {
         totalBorrowing.textContent = "Please select if first or second time buyer";
+        mortgageDetails.hidden = true
         return;
     }
     if (yearlyIncome <= 0) {
         totalBorrowing.textContent = "Please enter an income value greater than 0";
+        mortgageDetails.hidden = true
         return;
     }
 
 
-    
-
     annualCalculatedIncome = yearlyIncome * multiplier;
-    totalBorrowing.textContent =`Your calculated max lend is ${annualCalculatedIncome}`;
+    totalBorrowing.textContent =`Your estimated maximum borrowing is €${annualCalculatedIncome.toLocaleString('en-IE')}`;
+    depositCalculation = Math.round(((annualCalculatedIncome/90)*100)-annualCalculatedIncome);
+    depositMessage.textContent =`Total deposit required is €${depositCalculation.toLocaleString('en-IE')}`; 
 
     mortgageDetails.hidden = false;
 
@@ -133,7 +140,7 @@ calculatePaymentsButton.addEventListener("click", function() {
     }
 
     if (termLength.value === '' || mortgageTerm < 1 || mortgageTerm > 35) {         
-        monthlyPayments.textContent = "Please enter a mortgage term between 0 and 35 years";         
+        monthlyPayments.textContent = "Please enter a mortgage term between 1 and 35 years";         
         return;     
     }
 
@@ -144,9 +151,9 @@ calculatePaymentsButton.addEventListener("click", function() {
     const upperRate = monthlyRate * rateByTerm;
     const loanRate = annualCalculatedIncome * upperRate;
     const lowerRate = rateByTerm - 1;
-    const monthlyRepayments = loanRate/lowerRate;     
+    const monthlyRepayments = Number((loanRate/lowerRate).toFixed(2));     
 
-    monthlyPayments.textContent =`Your monthly Repayments would be ${monthlyRepayments}`;
+    monthlyPayments.textContent =`Your monthly Repayments would be €${monthlyRepayments.toLocaleString('en-IE')}`;
 
     mortgageChecklist.hidden = false
 

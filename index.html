@@ -12,7 +12,7 @@
     </header>
     <div class="borrowingCalculator">
         <div>
-            <p>Type of Buyer</p>
+            <label for="buyerType">Type of Buyer</label>
             <label>
                 <input type="radio" name="buyerType" id="firstTime">
                 First Time Buyer
@@ -22,10 +22,11 @@
                 Second Time Buyer
             </label>
         </div>
-        <input type="number" id="annualIncome" placeholder="please enter your yearly net income">
+        <label for="annualIncome">Annual Income (€)</label>
+        <input type="number" id="annualIncome" placeholder="Enter yearly Gross income">
         <button type="button" id="calculateTotalBtn">Calculate</button>
         <p id="totalBorrowing"></p>
-        <p id="annualIncomeMessage"></p>
+        <p id="depositMessage"></p>
         <div id="mortgageDetails" hidden>
             <label for="irishBank">Choose Bank</label>
             <select id="irishBank">
@@ -39,6 +40,7 @@
             <select id="interestRate" disabled>
                 <option value="">Awaiting bank selection</option>
             </select>
+            <label for="termLength">Term Length</label>
             <input type="number" id="termLength" placeholder="please enter term length">
             <button type="button" id="calculatePaymentsBtn">Calculate</button>
             <p id="monthlyPayments"></p>
@@ -56,44 +58,45 @@
                 <li>
                     <label>
                         <input type="checkbox">
-                        6 Months Savings Account/s Bank Statement
+                        <span>6 Months Savings Account/s Bank Statement</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        6 Months Loan Account/s Bank Statement
+                        <span>6 Months Loan Account/s Bank Statement</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        Salary Certificate
+                        <span>Salary Certificate</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        An Employment Detail Summary (EDS) (available through Revenue's myAccount service)
+                        <span>An Employment Detail Summary (EDS)</span>
+                        <small>Available through Revenue's myAccount service</small>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        Proven Repay Ability (PRA) 
-                        <p>(savings/rent/Loan payments:finsihing in next 6 months)</p>
+                        <span>Proven Repay Ability (PRA)</span>
+                        <small>Savings/rent/Loan payments(finsihing in next 6 months) for the last 6 months</small>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        placeholder
+                        <span>placeholder</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        placeholder
+                        <span>placeholder</span>
                     </label>
                 </li>
 
