@@ -12,7 +12,8 @@ const mortgageDetails = document.getElementById('mortgageDetails');
 const calculatePaymentsButton = document.getElementById('calculatePaymentsBtn');
 const monthlyPayments = document.getElementById('monthlyPayments');
 const paymentsMessage = document.getElementById('monthlyPaymentsMessage');
-const mortgageChecklist = document.getElementById('mortgageChecklist')
+const mortgageChecklist = document.getElementById('mortgageChecklist');
+const bankLogo = document.getElementById('bankLogo');
 // let used to allow calculation from first fuction to be used in subsequent functions
 let annualCalculatedIncome = 0;
 
@@ -88,9 +89,24 @@ const bankRates = {
     }
 }
 
+const bankLogos = {
+    boi: "images/boi_logo3.png",
+    aib: "images/aib_logo.png",
+    ptsb: "images/ptsb_logo.png",
+    ebs: "images/ebs_logo.jpg",
+
+}
+
 irishBank.addEventListener('change', function() {
 
     const selectedBank = irishBank.value;
+
+    if (selectedBank === "") {
+        bankLogo.style.display = "none";
+    } else {
+        bankLogo.src = bankLogos[selectedBank];
+        bankLogo.style.display = "block";
+    }
 
     document.body.classList.remove(
         'boi-theme',

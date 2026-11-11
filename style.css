@@ -10,12 +10,59 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #aeb8b5;
     color: #1a242e;
-    padding: 30px;
+    
 }
 
 header {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
 }
+ h1 {
+    font-size: 50px;
+ }
+
+.banklogo {
+    width: 200px;
+    height: auto;
+    display: none;
+}
+
+.buyerSelection, .incomeInput {
+    margin-bottom: 25px;
+}
+
+.buyerType {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.buyerOptions {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.buyerOptions label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.incomeInput input {
+    width: 100%;
+    max-width: 350px;
+    height: 42px;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+} 
 
 .borrowingCalculator {
     width: 90%;
@@ -27,10 +74,56 @@ header {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.88);
 }
 
+button {
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6)
+}
+
+
+.rateCalculator {
+    margin-top: 35px;
+}
+
+.rateInputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.rateSelectionGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.rateSelectionGroup label {
+    font-weight: bold;
+}
+
+.rateSelectionGroup input, .rateSelectionGroup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
 /* Bank of Ireland */
 body.boi-theme {
-    background-color: #00f;
-    color: #fff;
+    /* background-color: #00f; */
+    background: linear-gradient(135deg, #00f 0%, rgb(30, 30, 97) 100%);
+    color: #00f;
 }
 
 body.boi-theme .borrowingCalculator {
@@ -39,12 +132,30 @@ body.boi-theme .borrowingCalculator {
     
 }
 
+body.boi-theme .mortgageCalHeader {
+    background-color: #fff;
+    width: 100%;
+    padding: 30px 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body.boi-theme .mortgageCalFooter {
+    background-color: #fff;
+}
+
+body.boi-theme button {
+    background-color: #00f;
+    color: #fff;
+    border: none;
+}
 
 
 /* AIB */
 body.aib-theme {
-    background-color: #7f2b7b;
-    color: #fff;
+    /* background-color: #7f2b7b; */
+    background: linear-gradient(135deg, #7f2b7b 0%, #50104d 100%);
+    color: #7f2b7b;
 }
 
 body.aib-theme .borrowingCalculator {
@@ -52,13 +163,31 @@ body.aib-theme .borrowingCalculator {
     color: #7f2b7b;
 }
 
+body.aib-theme .mortgageCalHeader {
+    background-color: #fff;
+    width: 100%;
+    padding: 30px 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body.aib-theme .mortgageCalFooter {
+    background-color: #fff;
+}
+
+body.aib-theme button {
+    background-color: #7f2b7b;
+    color: #fff;
+    border: none;
+}
+
 
 
 /* PTSB */
 body.ptsb-theme {
     /* background-color: #dc4d15; */
-    background: linear-gradient(135deg, #dc4d15 0%, #8b5324 100%);
-    color: #08272c;
+    background: linear-gradient(135deg, #dc4d15 0%, #5e1d04 100%);
+    color: #dc4d15;
 }
 
 body.ptsb-theme .borrowingCalculator {
@@ -66,18 +195,59 @@ body.ptsb-theme .borrowingCalculator {
     color: #dc4d15;
 }
 
+body.ptsb-theme .mortgageCalHeader {
+    background-color: #08272c;
+    width: 100%;
+    padding: 30px 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body.ptsb-theme .mortgageCalFooter {
+    background-color: #08272c;
+}
+
+body.ptsb-theme button {
+    background-color: #dc4d15;
+    color: #08272c;
+    border: none;
+}
+
+
 
 
 /* EBS */
 body.ebs-theme {
-    background-color: #ed001e;
-    color: #fff;
+    /* background-color: #72c2a7; */
+    background: linear-gradient(135deg, #ed001e 0%, #55030e 100%);
+    color: #ed001e;
 }
 
 body.ebs-theme .borrowingCalculator {
     background-color: #fff;
     color: #ed001e;
 }
+
+body.ebs-theme .mortgageCalHeader {
+    background-color: #fff;
+    width: 100%;
+    padding: 30px 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body.ebs-theme .mortgageCalFooter {
+    background-color: #fff;  
+}
+
+body.ebs-theme button {
+    background-color: #ed001e;
+    color: #fff;
+    border: none;
+}
+
+
+
 
 
 /* mortgageChecklist */

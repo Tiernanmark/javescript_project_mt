@@ -7,41 +7,54 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="mortgageCalHeader">
         <h1>Mortgage Calculator</h1>
+        <img id="bankLogo" src="" alt="Selected Bank Logo" class="banklogo">
     </header>
     <div class="borrowingCalculator">
-        <div>
-            <label for="buyerType">Type of Buyer</label>
-            <label>
-                <input type="radio" name="buyerType" id="firstTime">
-                First Time Buyer
-            </label>
-            <label>
-                <input type="radio" name="buyerType" id="secondTime">
-                Second Time Buyer
-            </label>
+        <div class="buyerSelection">
+            <label for="buyerType" class="buyerType">Type of Buyer</label>
+            <div class="buyerOptions">
+                <label>
+                    <input type="radio" name="buyerType" id="firstTime">
+                    First Time Buyer
+                </label>
+                <label>
+                    <input type="radio" name="buyerType" id="secondTime">
+                    Second Time Buyer
+                </label>
+            </div>
         </div>
-        <label for="annualIncome">Annual Income (€)</label>
-        <input type="number" id="annualIncome" placeholder="Enter yearly Gross income">
+        <div class="incomeInput">
+            <label for="annualIncome" class="buyerType">Annual Income (€)</label>
+            <input type="number" id="annualIncome" placeholder="Enter yearly Gross income">
+        </div>
         <button type="button" id="calculateTotalBtn">Calculate</button>
         <p id="totalBorrowing"></p>
         <p id="depositMessage"></p>
-        <div id="mortgageDetails" hidden>
-            <label for="irishBank">Choose Bank</label>
-            <select id="irishBank">
-                <option value="">Please select a bank</option>
-                <option value="boi">Bank of Ireland</option>
-                <option value="aib">AIB</option>
-                <option value="ptsb">PTSB</option>
-                <option value="ebs">EBS</option>
-            </select>
-            <label for="interestRate">Interest Rate</label>
-            <select id="interestRate" disabled>
-                <option value="">Awaiting bank selection</option>
-            </select>
-            <label for="termLength">Term Length</label>
-            <input type="number" id="termLength" placeholder="please enter term length">
+        <div id="mortgageDetails" hidden class="rateCalculator">
+            <div class="rateInputs">
+                <div class="rateSelectionGroup">
+                    <label for="irishBank">Choose Bank</label>
+                    <select id="irishBank">
+                        <option value="">Please select a bank</option>
+                        <option value="boi">Bank of Ireland</option>
+                        <option value="aib">AIB</option>
+                        <option value="ptsb">PTSB</option>
+                        <option value="ebs">EBS</option>
+                    </select>
+                </div>
+                <div class="rateSelectionGroup">
+                    <label for="interestRate">Interest Rate</label>
+                    <select id="interestRate" disabled>
+                        <option value="">Awaiting bank selection</option>
+                    </select>
+                </div>
+                <div class="rateSelectionGroup">
+                    <label for="termLength">Term Length</label>
+                    <input type="number" id="termLength" placeholder="please enter term length">
+                </div>
+            </div>
             <button type="button" id="calculatePaymentsBtn">Calculate</button>
             <p id="monthlyPayments"></p>
             <p id="monthlyPaymentsMessage"></p>
@@ -104,7 +117,7 @@
         </div>
 
     </div>
-    <footer>Placeholder</footer>
+    <footer class="mortgageCalFooter">Placeholder</footer>
     <script src="script.js"></script>
 </body>
 </html>
