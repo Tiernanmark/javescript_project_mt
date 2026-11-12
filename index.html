@@ -9,7 +9,9 @@
 <body>
     <header class="mortgageCalHeader">
         <h1>Mortgage Calculator</h1>
-        <img id="bankLogo" src="" alt="Selected Bank Logo" class="banklogo">
+        <a id="bankWebsite" href="#" target="_blank">
+            <img id="bankLogo" src="" alt="Selected Bank Logo" class="banklogo">
+        </a>
     </header>
     <div class="borrowingCalculator">
         <div class="buyerSelection">
@@ -58,6 +60,10 @@
             <button type="button" id="calculatePaymentsBtn">Calculate</button>
             <p id="monthlyPayments"></p>
             <p id="monthlyPaymentsMessage"></p>
+            <div id="bankInfoBox" class="bankInfoBox" hidden>
+                <h3 id="bankInfoTitle"></h3>
+                <p id="bankInfoText"></p>
+            </div>
         </div>
         <div id="mortgageChecklist" hidden>
             <h2>Checklist</h2>
@@ -65,25 +71,25 @@
                 <li>
                     <label>
                         <input type="checkbox">
-                        <span>Months Current Account/s Bank Statement</span>
+                        <span>6 Months bank statements for any Current Accounts held</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        <span>6 Months Savings Account/s Bank Statement</span>
+                        <span>6 Months bank statements for any Savings Accounts held</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        <span>6 Months Loan Account/s Bank Statement</span>
+                        <span>6 Months bank statements for any Loan Accounts held</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        <span>Salary Certificate</span>
+                        <span>Salary Certificate from employer</span>
                     </label>
                 </li>
                 <li>
@@ -103,21 +109,28 @@
                 <li>
                     <label>
                         <input type="checkbox">
-                        <span>placeholder</span>
+                        <span>Proof of PPSN</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox">
-                        <span>placeholder</span>
+                        <span>2 most recent payslips</span>
                     </label>
                 </li>
 
             </ul>
+            <p>
+                This is a general list of required documentation for PAYE employees and each provider may require further information for individuals specific circumstances.
+            </p>
         </div>
 
     </div>
-    <footer class="mortgageCalFooter">Placeholder</footer>
+    <footer class="mortgageCalFooter">
+        <p>
+            © Mark Tiernan 2026 all rights reserved
+        </p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

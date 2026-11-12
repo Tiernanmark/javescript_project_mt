@@ -14,6 +14,10 @@ const monthlyPayments = document.getElementById('monthlyPayments');
 const paymentsMessage = document.getElementById('monthlyPaymentsMessage');
 const mortgageChecklist = document.getElementById('mortgageChecklist');
 const bankLogo = document.getElementById('bankLogo');
+const bankWebsite = document.getElementById('bankWebsite');
+const bankInfoBox = document.getElementById('bankInfoBox');
+const bankInfoTitle = document.getElementById('bankInfoTitle');
+const bankInfoText = document.getElementById('bankInfoText');
 // let used to allow calculation from first fuction to be used in subsequent functions
 let annualCalculatedIncome = 0;
 
@@ -31,16 +35,16 @@ calculateTotalButton.addEventListener("click", function() {
     mortgageChecklist.hidden = true;
 
     if (firstTimeBuyer.checked) {
-    multiplier = 4;
+        multiplier = 4;
     } else if (secondTimeBuyer.checked) {
-    multiplier = 3.5;
+        multiplier = 3.5;
     } else {
         totalBorrowing.textContent = "Please select if first or second time buyer";
         mortgageDetails.hidden = true
         return;
     }
-    if (yearlyIncome <= 0) {
-        totalBorrowing.textContent = "Please enter an income value greater than 0";
+    if (yearlyIncome < 25000) {
+        totalBorrowing.textContent = "Please enter income value greater or equal to €25,000";
         mortgageDetails.hidden = true
         return;
     }
@@ -54,6 +58,12 @@ calculateTotalButton.addEventListener("click", function() {
     mortgageDetails.hidden = false;
 
 })
+
+annualIncome.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        calculateTotalButton.click();
+    }
+});
 
 
 // Creation of rate dropdown selections based on bank choosen
@@ -94,8 +104,33 @@ const bankLogos = {
     aib: "images/aib_logo.png",
     ptsb: "images/ptsb_logo.png",
     ebs: "images/ebs_logo.jpg",
-
 }
+
+const bankWebsites = {
+    boi: "https://personalbanking.bankofireland.com/borrow/mortgages/",
+    aib: "https://www.aib.ie/our-products/mortgages",
+    ptsb: "https://www.ptsb.ie/mortgages/",
+    ebs: "https://www.ebs.ie/mortgages?gclsrc=aw.ds&gad_source=1&gad_campaignid=20516309685&gbraid=0AAAAADty9XYaMKql52JUdL4p1n7FF2v2E&gclid=Cj0KCQiA5NXXBhDEARIsABAJhdK3ZWCITwgo3g_uepHzj8zKgkW40JxZwxHrGMYoXHWcvU3HY7onvL4aAj6DEALw_wcB"
+}
+
+const bankBlurbs = {
+    boi: {
+        title: "Bank of Ireland",
+        text: "Best suited if you want upfront cash incentives and repayment flexibility over the lowest headline rate. BOI offers up to 3% cashback (2% at drawdown and 1% at year five), a €2,000 MortgageSaver bonus for first-time buyers, and a 3-month deferred start option. While standard cashback rates (3.80%–4.20% above) roll onto a higher Standard Variable Rate (around 4.15%), buying an energy-efficient home (BER A3+) with a 10% deposit unlocks lower EcoSaver green fixed rates. Weigh the immediate cashback lump sum against your monthly repayments above."
+    },
+    aib: {
+        title: "AIB",
+        text: "Best suited if you want sharp fixed interest rates without relying on cashback offers. AIB competes directly on lower monthly repayments across a wide range of fixed terms (1 to 10 years, 3.50%–4.20% above), alongside even lower Green Fixed Rates (for BER A0–B / A1–B3 homes) and High Value 4-Year Fixed options for larger loans. You will typically see lower monthly outgoings here—especially if you are buying a newer, energy-efficient home or borrowing a larger sum."
+    },
+    ptsb: {
+        title: "PTSB (Permanent TSB)",
+        text: "Best suited if you want a middle-ground balance between competitive rates and ongoing cash rewards. PTSB offers 2% cashback at drawdown alongside 2% monthly cashback on mortgage repayments through 2030 when paid from an Explore Current Account (€8 monthly fee). While their lowest non-cashback 4-Year Fixed rate excludes the 2% lump sum, PTSB’s standard fixed rates (3.95%–4.40% above) and Green rates remain eligible for both perks. Factor both the upfront 2% lump sum and monthly rebate against your calculated repayments."
+    },
+    ebs: {
+        title: "EBS",
+        text: "Best suited if you want face-to-face branch support paired with a simple either/or product choice. EBS splits its lineup into upfront cash or a low flat rate: pick 3% Back in Cash (2% within two months of drawdown and 1% at year five on 2-, 3-, or 5-year fixed rates from 3.90%–4.40%), or opt for their 3.20% Green 4-Year Fixed Rate (for qualifying BER A0–B / A1–B3 properties across all deposit sizes, excluding the 3% cashback). Use the dropdown above to test whether the flat 3.20% green rate saves you more per month than the 3% cash lump sum."
+    }
+};
 
 irishBank.addEventListener('change', function() {
 
@@ -103,9 +138,15 @@ irishBank.addEventListener('change', function() {
 
     if (selectedBank === "") {
         bankLogo.style.display = "none";
+        bankWebsite.href = "#";
+        bankInfoBox.hidden = true;
     } else {
         bankLogo.src = bankLogos[selectedBank];
         bankLogo.style.display = "block";
+        bankWebsite.href = bankWebsites[selectedBank];
+        bankInfoTitle.textContent = bankBlurbs[selectedBank].title;
+        bankInfoText.textContent = bankBlurbs[selectedBank].text;
+        bankInfoBox.hidden = false;
     }
 
     document.body.classList.remove(
@@ -155,8 +196,8 @@ calculatePaymentsButton.addEventListener("click", function() {
         return;
     }
 
-    if (termLength.value === '' || mortgageTerm < 1 || mortgageTerm > 35) {         
-        monthlyPayments.textContent = "Please enter a mortgage term between 1 and 35 years";         
+    if (termLength.value === '' || mortgageTerm < 5 || mortgageTerm > 35) {         
+        monthlyPayments.textContent = "Please enter a mortgage term between 5 and 35 years";         
         return;     
     }
 
@@ -174,3 +215,9 @@ calculatePaymentsButton.addEventListener("click", function() {
     mortgageChecklist.hidden = false
 
 })
+
+termLength.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        calculatePaymentsButton.click();
+    }
+});
