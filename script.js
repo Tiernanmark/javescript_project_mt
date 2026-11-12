@@ -18,6 +18,7 @@ const bankWebsite = document.getElementById('bankWebsite');
 const bankInfoBox = document.getElementById('bankInfoBox');
 const bankInfoTitle = document.getElementById('bankInfoTitle');
 const bankInfoText = document.getElementById('bankInfoText');
+const calculatorImg = document.querySelector('.calculatorHeroImg');
 // let used to allow calculation from first fuction to be used in subsequent functions
 let annualCalculatedIncome = 0;
 
@@ -132,6 +133,14 @@ const bankBlurbs = {
     }
 };
 
+const bankHeroImages = {
+    boi: "images/boi_house.jpg",
+    aib: "images/aib_house.jpg",
+    ptsb: "images/ptsb_house.jpg",
+    ebs: "images/ebs_house.webp"
+};
+
+
 irishBank.addEventListener('change', function() {
 
     const selectedBank = irishBank.value;
@@ -166,6 +175,12 @@ irishBank.addEventListener('change', function() {
         interestRate.disabled = true;
         interestRate.innerHTML = '<option value="">Awaiting bank Selction</option>';
         return;
+    }
+
+    if (selectedBank === "") {
+        calculatorImg.src = "images/your-image.webp";
+    } else if (bankHeroImages[selectedBank]) {
+        calculatorImg.src = bankHeroImages[selectedBank];
     }
 
     const rates = bankRates[selectedBank];

@@ -14,26 +14,33 @@
         </a>
     </header>
     <div class="borrowingCalculator">
-        <div class="buyerSelection">
-            <label for="buyerType" class="buyerType">Type of Buyer</label>
-            <div class="buyerOptions">
-                <label>
-                    <input type="radio" name="buyerType" id="firstTime">
-                    First Time Buyer
-                </label>
-                <label>
-                    <input type="radio" name="buyerType" id="secondTime">
-                    Second Time Buyer
-                </label>
+        <div class="incomeCalculator">
+            <div class="incomeCalculatorLeft">
+                <div class="buyerSelection">
+                    <label for="buyerType" class="buyerType">Type of Buyer</label>
+                    <div class="buyerOptions">
+                        <label>
+                            <input type="radio" name="buyerType" id="firstTime">
+                            First Time Buyer
+                        </label>
+                        <label>
+                            <input type="radio" name="buyerType" id="secondTime">
+                            Second Time Buyer
+                        </label>
+                    </div>
+                </div>
+                <div class="incomeInput">
+                    <label for="annualIncome" class="buyerType">Annual Income (€)</label>
+                    <input type="number" id="annualIncome" placeholder="Enter yearly Gross income">
+                </div>
+                <button type="button" id="calculateTotalBtn">Calculate</button>
+                <p id="totalBorrowing"></p>
+                <p id="depositMessage"></p>
+            </div>
+            <div class="incomeCalculatorRight">
+                <img src="images/your-image.webp" alt="Home Mortgage Illustration" class="calculatorHeroImg">
             </div>
         </div>
-        <div class="incomeInput">
-            <label for="annualIncome" class="buyerType">Annual Income (€)</label>
-            <input type="number" id="annualIncome" placeholder="Enter yearly Gross income">
-        </div>
-        <button type="button" id="calculateTotalBtn">Calculate</button>
-        <p id="totalBorrowing"></p>
-        <p id="depositMessage"></p>
         <div id="mortgageDetails" hidden class="rateCalculator">
             <div class="rateInputs">
                 <div class="rateSelectionGroup">
