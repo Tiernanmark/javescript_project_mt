@@ -205,12 +205,12 @@ EBS house - https://selfbuild.ie/company/ebs/?id=1156
 #### Microsoft Copilot
 
 - Assisted with developing each banks mortgage offering description.
-- Used to help with write up and this readme
+- Used to help with write up (in particular the word count limit). 
 
 #### ChatGPT
 
-- Used to review code and identify corrections.
-- Used to help with CSS styling
+- Used to review code and identify corrections/recommendations.
+- Used to help with CSS styling.
 - Used to assist with rewording and improving project documentation.
 
 ### Ferdia O'Brien - Director of Engineering - Scorebuddy

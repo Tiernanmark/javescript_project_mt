@@ -53,8 +53,8 @@ calculateTotalButton.addEventListener("click", function() {
 
     annualCalculatedIncome = yearlyIncome * multiplier;
     totalBorrowing.textContent =`Your estimated maximum borrowing is €${annualCalculatedIncome.toLocaleString('en-IE')}`;
-    depositCalculation = Math.round(((annualCalculatedIncome/90)*100)-annualCalculatedIncome);
-    depositMessage.textContent =`Total deposit required is €${depositCalculation.toLocaleString('en-IE')}`; 
+    const depositCalculation = Math.round(((annualCalculatedIncome/90) * 100)-annualCalculatedIncome);
+    depositMessage.textContent =`Total minimum 10% deposit required is €${depositCalculation.toLocaleString('en-IE')}`; 
 
     mortgageDetails.hidden = false;
 
@@ -71,33 +71,33 @@ annualIncome.addEventListener("keypress", function (event) {
 
 
 const bankRates = {
-    boi: {
-        3.80: 2,
-        3.90: 3,
-        3.90: 5,
-        4.20: 10,
-    },
-    aib: {
-        3.50: 1,
-        3.55: 2,
-        3.70: 3,
-        3.75: 4,
-        3.85: 5,
-        4.05: 7,
-        4.20: 10,
-    },
-    ptsb: {
-        4.40: 2,
-        4.25: 3,
-        4.10: 5,
-        3.95: 7,
-    },
-    ebs: {
-        3.90: 2,
-        4.30: 3,
-        3.20: 4,
-        4.40: 5,
-    }
+    boi: [
+        { rate: 3.80, years: 2 },
+        { rate: 3.90, years: 3 },
+        { rate: 3.90, years: 5 },
+        { rate: 4.20, years: 10 },
+    ],
+    aib: [
+        { rate: 3.50, years: 1 },
+        { rate: 3.55, years: 2 },
+        { rate: 3.70, years: 3 },
+        { rate: 3.75, years: 4 },
+        { rate: 3.85, years: 5 },
+        { rate: 4.05, years: 7 },
+        { rate: 4.20, years: 10 },
+    ],
+    ptsb: [
+        { rate: 4.40, years: 2 },
+        { rate: 4.25, years: 3 },
+        { rate: 4.10, years: 5 },
+        { rate: 3.95, years: 7 },
+    ],
+    ebs: [
+        { rate: 3.90, years: 2 },
+        { rate: 4.30, years: 3 },
+        { rate: 3.20, years: 4 },
+        { rate: 4.40, years: 5 },
+    ]
 }
 
 const bankLogos = {
@@ -171,6 +171,12 @@ irishBank.addEventListener('change', function() {
 
     interestRate.innerHTML = '';
 
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Select an interest rate';
+
+    interestRate.appendChild(defaultOption);
+
     if(selectedBank === '') {
         interestRate.disabled = true;
         interestRate.innerHTML = '<option value="">Awaiting bank Selction</option>';
@@ -185,11 +191,11 @@ irishBank.addEventListener('change', function() {
 
     const rates = bankRates[selectedBank];
 
-    Object.entries(rates).forEach(function([percentage, years]) {
+    rates.forEach(function(item) {
         const option = document.createElement('option');
 
-        option.value = percentage;
-        option.textContent = percentage + '% - ' + years + ' Years';
+        option.value = item.rate;
+        option.textContent = `${item.rate}% - ${item.years} Years`;
 
         interestRate.appendChild(option);
     });
@@ -205,6 +211,11 @@ irishBank.addEventListener('change', function() {
 calculatePaymentsButton.addEventListener("click", function() {
     const mortgageTerm = Number(termLength.value);
     const selectedRate = Number(interestRate.value);
+
+    if (annualCalculatedIncome <= 0) {
+        monthlyPayments.textContent = "Please calculate your maximum borrowing first";
+        return;
+    }
 
     if (irishBank.value === "" ) {
         monthlyPayments.textContent = "Please select a Bank";
