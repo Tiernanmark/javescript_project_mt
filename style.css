@@ -313,3 +313,24 @@ footer {
     text-align: center;
     padding: 15px;
 }
+
+@media (max-width: 768px) {
+
+    body.boi-theme .mortgageCalHeader,
+    body.aib-theme .mortgageCalHeader,
+    body.ptsb-theme .mortgageCalHeader,
+    body.ebs-theme .mortgageCalHeader {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .incomeCalculator {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 512px) {
+    h1 {
+        text-align: center;
+    }
+}
