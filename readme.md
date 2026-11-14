@@ -199,4 +199,5 @@ EBS house - https://selfbuild.ie/company/ebs/?id=1156
 
 ### Ferdia O'Brien - Director of Engineering - Scorebuddy
 
-- Reviewed and critiqued the code where needed
+- Reviewed and critiqued the code where needed (example use of &nbsp; for validatior warning return)
+- Advised on possible future improvements, such as js frame work
