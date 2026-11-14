@@ -1,4 +1,3 @@
-// Total lending about based on declared annual income
 const firstTimeBuyer = document.getElementById('firstTime');
 const secondTimeBuyer = document.getElementById('secondTime');
 const annualIncome = document.getElementById('annualIncome');
@@ -24,7 +23,6 @@ let annualCalculatedIncome = 0;
 
 
 // Calculation 1 - Total Borrowing potental based on FTB/STB & annual income
-
 calculateTotalButton.addEventListener("click", function() {
     const yearlyIncome = Number(annualIncome.value);
     
@@ -67,9 +65,7 @@ annualIncome.addEventListener("keypress", function (event) {
 });
 
 
-// Creation of rate dropdown selections based on bank choosen
-
-
+// Creation of rate dropdown selections & stylings based on bank choosen
 const bankRates = {
     boi: [
         { rate: 3.80, years: 2 },
@@ -206,8 +202,6 @@ irishBank.addEventListener('change', function() {
 })
 
 // Calculation 2 - Total Monthly repayments based off of Calculation 1, rate & term lenght.
-
-
 calculatePaymentsButton.addEventListener("click", function() {
     const mortgageTerm = Number(termLength.value);
     const selectedRate = Number(interestRate.value);
