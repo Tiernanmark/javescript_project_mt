@@ -104,7 +104,7 @@ const bankLogos = {
     boi: "images/boi_logo3.png",
     aib: "images/aib_logo.png",
     ptsb: "images/ptsb_logo.png",
-    ebs: "images/ebs_logo.jpg",
+    ebs: "images/ebs_Logo.jpg",
 }
 
 const bankWebsites = {
