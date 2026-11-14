@@ -138,8 +138,8 @@ https://tiernanmark.github.io/javescript_project_mt/
 
 Source code is available at:
 
-```text
-https://github.com/Tiernanmark/javescript_project_mt.git
+```
+https://tiernanmark.github.io/javescript_project_mt/
 ```
 
 ---
@@ -158,22 +158,6 @@ git clone https://github.com/yourusername/mortgage-application-calculator.git
 
 Alternatively, use the Live Server extension within Visual Studio Code.
 
----
-
-## Future Improvements
-
-Potential future enhancements include:
-
-- Joint applicant mortgage calculations.
-- Additional Irish mortgage providers.
-- Mortgage affordability graphs.
-- Loan-to-value (LTV) calculations.
-- Property purchase cost estimator.
-- Stamp duty calculator.
-- Local storage for saving user information.
-- Automatic mortgage rate updates through APIs.
-
----
 
 ## Author
 
